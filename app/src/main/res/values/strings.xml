@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tuck – Instagram Image Downloader</string>
+    <string name="app_name_short">Tuck</string>
+
+    <string name="error_invalid_link">Not a valid Instagram link</string>
+
+    <string name="ask_write_storage_permission">In order to download photos, Tuck needs the permission to write to the external storage.</string>
+
+    <string name="download_running">Downloading…</string>
+    <string name="download_success">Finished download</string>
+    <string name="download_error">Failed to download</string>
+</resources>

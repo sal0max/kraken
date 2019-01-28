@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="216" height="178.1" viewBox="0 0 108 89.05">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.468" y1="-0.068" x2="0.465" y2="0.963" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-opacity="0.102"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Master" transform="translate(-67 -69)">
+    <g id="Background">
+      <rect id="color" width="108" height="78" transform="translate(67 69)" fill="none"/>
+    </g>
+    <g id="Foreground" transform="translate(4.885 3.763)">
+      <path id="shadow" d="M-.651,16.225,49.1-.013l.462,50.864H.174Z" transform="translate(98.982 117.87) rotate(-45)" opacity="0.6" fill="url(#linear-gradient)"/>
+      <g id="face" transform="translate(-4.617 -6.673)">
+        <path id="head" d="M28.527,45.776v0a24.328,24.328,0,0,0,1.338-6.554c0-4.277-4.1-7.757-9.149-7.757s-9.149,3.48-9.149,7.757a24.151,24.151,0,0,0,1.3,6.441,22.089,22.089,0,1,1,15.66.114Z" transform="translate(100.383 82.327)" fill="#fff" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+        <path id="hair" d="M30.763,0S26.284,2.884,15.454,2.884,0,0,0,0" transform="translate(105.631 94.339)" fill="#fff" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+        <path id="beard" d="M9.149,0C14.2,0,18.3,3.473,18.3,7.757S14.2,24.625,9.149,24.625,0,12.042,0,7.757,4.1,0,9.149,0Z" transform="translate(111.95 113.789)" fill="#fff" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+        <line id="mouth" transform="translate(121.232 121.523)" fill="none" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+        <line id="left_eye" data-name="left eye" y1="1.288" transform="translate(110.928 104.778)" fill="none" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+        <line id="right_eye" data-name="right eye" y1="1.288" transform="translate(130.248 104.778)" fill="none" stroke="#997154" stroke-linecap="round" stroke-width="5"/>
+      </g>
+    </g>
+  </g>
+</svg>
