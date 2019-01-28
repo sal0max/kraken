@@ -31,11 +31,11 @@
 
 ### Screenshots
 
-![](art/screenshots/01.png)
-
-![](art/screenshots/02.png)
-
-![](art/screenshots/03.png)
+<div>
+   <img src="art/screenshots/01.png" width="280" alt="screenshot 1">
+   <img src="art/screenshots/02.png" width="280" alt="screenshot 2">
+   <img src="art/screenshots/03.png" width="280" alt="screenshot 3">
+</div>
 
 
 ## License
