@@ -26,7 +26,7 @@
 * The filename will be in the format `<username>.<yyyyMMdd>.<shortcode>.[jpg/mp4]`.  
   e. g. `danielkordan.20181119.BqXaCwGA_Hx.jpg`
 * `shortcode` is the id of the image. With it you can find the post again:  
-   e. g. for the shortcode `BoolVHnn0y3` open this link to get to the post, again: <https://www.instagram.com/p/BqXaCwGA_Hx/>
+   e. g. for the shortcode `BqXaCwGA_Hx` open this link to get to the post, again: <https://www.instagram.com/p/BqXaCwGA_Hx/>
 
 
 ### Screenshots
