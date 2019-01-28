@@ -27,6 +27,7 @@ class Notification(private val context: Context) {
             val name = context.getString(R.string.app_name_short)
             val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance)
+            channel.setSound(null, null)
             // Register the channel with the system
             val notificationManager: NotificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
