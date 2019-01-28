@@ -5,8 +5,8 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import com.fondesa.kpermissions.extension.*
+import java.lang.Exception
 
 class TuckActivity : Activity() {
 
@@ -34,16 +34,30 @@ class TuckActivity : Activity() {
         val data: String? = intent?.getStringExtra(Intent.EXTRA_TEXT)
 
         data?.let {
-            if (it.contains("instagram.com/p/")) {
-                // get shortcode of post
-                Uri.parse(it).pathSegments?.last()?.let { shortcode: String ->
-                    // fire off service
-                    TuckService.enqueueWork(this, shortcode)
-                }
+            val shortcode = parseUri(it)
+            if (shortcode != null) {
+                TuckService.enqueueWork(this, shortcode)
             } else {
-                Notification(this).notifyWrongLinkError()
+                Notification(this).notifyWrongLinkError(data)
             }
         }
+    }
+
+    private fun parseUri(s: String): String? {
+        val uri = Uri.parse(s)
+        return try {
+            if (uri != null // check if its a valid link
+                && uri.authority == "www.instagram.com" // check if its an instagram url
+                && uri.pathSegments.find { it == "p" } != null // check if its a instagram picture url
+                && uri.pathSegments.indexOf("p") != uri.pathSegments.size - 1 // check if it has a shortcode (something that follows /p/)
+            )
+                uri.pathSegments?.let { it[it.indexOf("p") + 1] } as String
+            else
+                null
+        } catch (e: Exception) {
+            null
+        }
+
     }
 
 }

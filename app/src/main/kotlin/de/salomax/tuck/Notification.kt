@@ -34,11 +34,15 @@ class Notification(private val context: Context) {
         }
     }
 
-    fun notifyWrongLinkError() {
+    fun notifyWrongLinkError(errorMsg: String?) {
         val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_stat)
             .setContentTitle(context.getString(R.string.error_invalid_link))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setStyle(
+                NotificationCompat.BigTextStyle()
+                    .bigText(errorMsg)
+            )
             .build()
         NotificationManagerCompat
             .from(context)

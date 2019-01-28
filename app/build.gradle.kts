@@ -74,6 +74,17 @@ task("sendSingleIntent", Exec::class) {
     )
 }
 
+task("sendSingleIntentNew", Exec::class) {
+    commandLine(
+        "adb", "shell",
+        "am", "start",
+        "-a", "android.intent.action.SEND",
+        "-t", "text/plain",
+        "--es", "android.intent.extra.TEXT",
+        "\"https://www.instagram.com/hildeee/p/BtLzwwjBTNP/?utm_source=ig_sheet\""
+    )
+}
+
 task("sendCarouselIntent", Exec::class) {
     commandLine(
         "adb", "shell",

@@ -29,21 +29,21 @@ class InstrumentedTest {
 
     @Test
     fun parseUri() {
-        val s1 = Uri.parse("https://www.instagram.com/p/BtKpphFjtRa")
-        val s2 = Uri.parse("https://www.instagram.com/p/BrncKOOB83d?utm_source=ig_share_sheet")
-        val s3 = Uri.parse("https://www.instagram.com/p/BrnxhiIhsuu?utm_source=ig_share_sheet&igshid=1jd5d0ezsv5ke")
+        val uris = listOf(
+            Uri.parse("https://www.instagram.com/p/BtKpphFjtRa"),
+            Uri.parse("https://www.instagram.com/p/BrnxhiIhsuu?utm_source=ig_share_sheet&igshid=1jd5d0ezsv5ke"),
+            Uri.parse("https://www.instagram.com/hildeee/p/BtLzwwjBTNP/?utm_source=ig_sheet/")
+        )
 
-        assertEquals(2, s1.pathSegments.size)
-        assertEquals(2, s2.pathSegments.size)
-        assertEquals(2, s3.pathSegments.size)
+        for (uri in uris) {
+            assertEquals("www.instagram.com", uri.authority)
+            assertNotNull(uri.pathSegments.find { it == "p" })
+            assertNotEquals(uri.pathSegments.size - 1, uri.pathSegments.indexOf("p"))
+        }
 
-        assertEquals("p", s1.pathSegments[0])
-        assertEquals("p", s2.pathSegments[0])
-        assertEquals("p", s3.pathSegments[0])
-
-        assertEquals("BtKpphFjtRa", s1.pathSegments[1])
-        assertEquals("BrncKOOB83d", s2.pathSegments[1])
-        assertEquals("BrnxhiIhsuu", s3.pathSegments[1])
+        assertEquals("BtKpphFjtRa", uris[0].pathSegments?.let { it[it.indexOf("p") + 1] } as String)
+        assertEquals("BrnxhiIhsuu", uris[1].pathSegments?.let { it[it.indexOf("p") + 1] } as String)
+        assertEquals("BtLzwwjBTNP", uris[2].pathSegments?.let { it[it.indexOf("p") + 1] } as String)
     }
 
 
