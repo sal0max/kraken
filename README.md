@@ -21,13 +21,6 @@
 1. In the Instagram app, just share the photo you like to download and select `Share via…` or `Share Link…` (Depending on Instagram version).
 2. Select `Tuck – Instagram Image Downloader` and watch the magic happen.
 
-### Info
-* All images will be downloaded to the `/Pictures/Tuck/` folder. Videos to `/Movies/Tuck/`.
-* The filename will be in the format `<username>.<yyyyMMdd>.<shortcode>.[jpg/mp4]`.  
-  e. g. `danielkordan.20181119.BqXaCwGA_Hx.jpg`
-* `shortcode` is the id of the image. With it you can find the post again:  
-   e. g. for the shortcode `BqXaCwGA_Hx` open this link to get to the post, again: <https://www.instagram.com/p/BqXaCwGA_Hx/>
-
 
 ### Screenshots
 
@@ -36,6 +29,13 @@
    <img src="art/screenshots/02.png" width="280" alt="screenshot 2">
    <img src="art/screenshots/03.png" width="280" alt="screenshot 3">
 </div>
+
+### Info
+* All images will be downloaded to the `/Pictures/Tuck/` folder. Videos to `/Movies/Tuck/`.
+* The filename will be in the format `<username>.<yyyyMMdd>.<shortcode>.[jpg/mp4]`.  
+  e. g. `danielkordan.20181119.BqXaCwGA_Hx.jpg`
+* `shortcode` is the id of the image. With it you can find the post again:  
+   e. g. for the shortcode `BqXaCwGA_Hx` open this link to get to the post, again: <https://www.instagram.com/p/BqXaCwGA_Hx/>
 
 
 ## License
