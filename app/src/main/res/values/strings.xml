@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tuck – Instagram Image Downloader</string>
+    <string name="app_name">Tuck for Instagram</string>
     <string name="app_name_short">Tuck</string>
 
     <string name="error_invalid_link">Not a valid link</string>
