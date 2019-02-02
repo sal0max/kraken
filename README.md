@@ -19,7 +19,7 @@
 ### How-to
 
 1. In the Instagram app, just share the photo you like to download and select `Share via…` or `Share Link…` (Depending on Instagram version).
-2. Select `Tuck – Instagram Image Downloader` and watch the magic happen.
+2. Select `Tuck for Instagram` and watch the magic happen.
 
 
 ### Screenshots
