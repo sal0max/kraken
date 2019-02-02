@@ -9,6 +9,8 @@
 > * **tuck** _(verb)_ – Put or keep (something) in a specified place so as to be hidden, secure, comfortable, or tidy.  
 > * Friar **Tuck** is a companion to Robin Hood in the legends about that character.
 
+[<img alt="Get it on Google Play" height="60" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.salomax.tuck)
+
 ### Features
 
 * Lean: No UI, no App icon – works in the background
