@@ -24,7 +24,7 @@ class InstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("de.salomax.tuck", appContext.packageName)
+        assertEquals("de.salomax.tuck.debug", appContext.packageName)
     }
 
     @Test

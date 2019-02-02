@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -5,6 +8,7 @@ plugins {
 
 android {
     compileSdkVersion(28)
+
     defaultConfig {
         applicationId = "de.salomax.tuck"
         minSdkVersion(21)
@@ -17,14 +21,37 @@ android {
         versionCode = (major * 10000) + (minor * 100) + patch
         versionName = "$major ($major.$minor.$patch)"
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+
+    signingConfigs {
+        create("release") {
+            storeFile     = File(getSecret("KEYSTORE_FILE"))
+            storePassword = getSecret("KEYSTORE_PASSWORD")
+            keyAlias      = getSecret("KEYSTORE_KEY_ALIAS")
+            keyPassword   = getSecret("KEYSTORE_KEY_PASSWORD")
         }
     }
+
     android {
         sourceSets["main"].java.srcDir("src/main/kotlin")
+        sourceSets["androidTest"].java.srcDir("src/androidTest/kotlin")
+    }
+
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+            isDebuggable = false
+            isZipAlignEnabled = true
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = " [DEBUG]"
+        }
     }
 }
 
@@ -116,4 +143,15 @@ task("sendCarouselWithVideoIntent", Exec::class) {
         "--es", "android.intent.extra.TEXT",
         "\"https://www.instagram.com/p/BrqDSekAdc-/\""
     )
+}
+
+fun getSecret(key: String): String? {
+    val secretsFile = rootProject.file("secrets.properties")
+    return if (secretsFile.exists()) {
+        val props = Properties()
+        props.load(FileInputStream(secretsFile))
+        props.getProperty(key)
+    } else {
+        null
+    }
 }
