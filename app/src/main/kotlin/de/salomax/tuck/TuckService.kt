@@ -1,6 +1,5 @@
 package de.salomax.tuck
 
-import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -78,7 +77,6 @@ class TuckService : Service() {
     /**
      * Starts a download for each image/video of the post
      */
-    @SuppressLint("CheckResult")
     private fun parseResult(post: Post) {
         post.images
             .forEach { image ->

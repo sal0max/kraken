@@ -7,11 +7,16 @@
 
 -dontnote retrofit2.Platform
 -dontwarn retrofit2.Platform$Java8
--keepattributes Signature
--keepattributes Exceptions
 
 -dontwarn okhttp3.**
 -dontwarn okio.**
+
 -dontwarn javax.annotation.**
 
+-keepattributes Signature
+-keepattributes Exceptions
+
 -dontwarn de.salomax.tuck.**
+-keep class de.salomax.tuck.** {
+  *;
+}

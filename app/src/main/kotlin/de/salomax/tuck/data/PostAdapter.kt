@@ -5,6 +5,7 @@ import com.squareup.moshi.FromJson
 internal class PostAdapter {
 
     @FromJson
+    @Suppress("unused")
     fun fromJson(json: Result): Post {
         return Post(
             json.graphQl.shortcodeMedia.id,
