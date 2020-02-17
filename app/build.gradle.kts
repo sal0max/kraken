@@ -97,7 +97,7 @@ task("sendSingleIntent", Exec::class) {
         "-a", "android.intent.action.SEND",
         "-t", "text/plain",
         "--es", "android.intent.extra.TEXT",
-        "\"https://www.instagram.com/p/BrncKOOB83d?utm_source=ig_share_sheet&igshid=1jd5d0ezsv5ke\""
+        "\"https://www.instagram.com/p/B68xZD3HI57?utm_source=ig_share_sheet&igshid=1jd5d0ezsv5ke\""
     )
 }
 
@@ -130,7 +130,7 @@ task("sendVideoIntent", Exec::class) {
         "-a", "android.intent.action.SEND",
         "-t", "text/plain",
         "--es", "android.intent.extra.TEXT",
-        "\"https://www.instagram.com/p/Brns9TgCq0Q/\""
+        "\"https://www.instagram.com/p/B8qdFfShKfs/\""
     )
 }
 
@@ -141,7 +141,7 @@ task("sendCarouselWithVideoIntent", Exec::class) {
         "-a", "android.intent.action.SEND",
         "-t", "text/plain",
         "--es", "android.intent.extra.TEXT",
-        "\"https://www.instagram.com/p/BrqDSekAdc-/\""
+        "\"https://www.instagram.com/p/B8rUvYWHLR7/\""
     )
 }
 
