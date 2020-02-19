@@ -5,14 +5,16 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
-import android.provider.Settings
-import android.support.v4.app.NotificationCompat
-import android.support.v4.app.NotificationManagerCompat
+import android.database.Cursor
 import android.graphics.BitmapFactory
 import android.media.ThumbnailUtils
+import android.net.Uri
+import android.os.Build
 import android.provider.MediaStore
+import android.provider.Settings
+import android.util.Size
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class Notification(private val context: Context) {
 
@@ -106,18 +108,31 @@ class Notification(private val context: Context) {
             .notify(notificationId, notification)
     }
 
-    fun notifyDownloadSuccess(notificationId: Int, text: String, path: String, isVideo: Boolean) {
-        // open image in gallery(intent)
+    fun notifyDownloadSuccess(notificationId: Int, text: String, uri: Uri, isVideo: Boolean) {
+        // open image in gallery (intent)
         val intent = Intent()
-        intent.action = android.content.Intent.ACTION_VIEW
-        intent.setDataAndType(Uri.parse(path), if (isVideo) "video/*" else "image/*")
+        intent.action = Intent.ACTION_VIEW
+        intent.setDataAndType(uri, if (isVideo) "video/*" else "image/*")
         val pIntent = PendingIntent.getActivity(context, System.currentTimeMillis().toInt(), intent, 0)
 
         // generate preview
-        val preview = if (isVideo)
-            ThumbnailUtils.createVideoThumbnail(path, MediaStore.Images.Thumbnails.MINI_KIND)
-        else
-            BitmapFactory.decodeFile(path)
+        val preview =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                context.contentResolver.loadThumbnail(uri, Size(512, 384), null)
+            else {
+                @Suppress("DEPRECATION")
+                if (isVideo)
+                    ThumbnailUtils.createVideoThumbnail(
+                        uri.path!!,
+                        MediaStore.Images.Thumbnails.MINI_KIND
+                    )
+                else
+                    BitmapFactory.decodeFile(uri.path) ?: ThumbnailUtils.extractThumbnail(
+                        BitmapFactory.decodeFile(getRealPathFromUriPreQ(uri)),
+                        512,
+                        384
+                    )
+            }
 
         val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_stat)
@@ -136,6 +151,19 @@ class Notification(private val context: Context) {
         NotificationManagerCompat
             .from(context)
             .notify(notificationId, notification)
+    }
+
+    @Suppress("DEPRECATION")
+    fun getRealPathFromUriPreQ(contentUri: Uri?): String? {
+        var cursor: Cursor? = null
+        return try {
+            cursor = context.contentResolver.query(contentUri!!, null, null, null, null)
+            val columnIndex = cursor?.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
+            cursor?.moveToFirst()
+            columnIndex?.let { cursor?.getString(it) }
+        } finally {
+            cursor?.close()
+        }
     }
 
 }

@@ -1,6 +1,8 @@
 package de.salomax.tuck.data
 
 import com.squareup.moshi.FromJson
+import com.squareup.moshi.ToJson
+import java.lang.UnsupportedOperationException
 
 internal class PostAdapter {
 
@@ -42,5 +44,10 @@ internal class PostAdapter {
         )
     }
 
-}
+    @Suppress("unused", "UNUSED_PARAMETER")
+    @ToJson
+    fun toJson(post: Post): Result?  {
+        throw UnsupportedOperationException()
+    }
 
+}

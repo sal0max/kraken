@@ -1,14 +1,14 @@
 package de.salomax.tuck
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import com.fondesa.kpermissions.extension.*
 import java.lang.Exception
 
-class TuckActivity : Activity() {
+class TuckActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class TuckActivity : Activity() {
         data?.let {
             val shortcode = parseUri(it)
             if (shortcode != null) {
-                TuckService.enqueueWork(this, shortcode)
+                InstaApiWorker.enqueueWork(this, shortcode)
             } else {
                 Notification(this).notifyWrongLinkError(data)
             }

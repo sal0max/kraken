@@ -7,24 +7,29 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
         applicationId = "de.salomax.tuck"
         minSdkVersion(21)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         // SemVer
         val major = 1
         val minor = 0
-        val patch = 0
+        val patch = 1
         versionCode = (major * 10000) + (minor * 100) + patch
         versionName = "$major ($major.$minor.$patch)"
     }
 
     signingConfigs {
         create("release") {
-            storeFile     = File(getSecret("KEYSTORE_FILE"))
+            storeFile     = File(getSecret("KEYSTORE_FILE")!!)
             storePassword = getSecret("KEYSTORE_PASSWORD")
             keyAlias      = getSecret("KEYSTORE_KEY_ALIAS")
             keyPassword   = getSecret("KEYSTORE_KEY_PASSWORD")
@@ -53,30 +58,35 @@ android {
             versionNameSuffix = " [DEBUG]"
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
-    val retrofitVersion = "2.5.0"
-    val supportLibVersion = "28.0.0"
+    val fuelVersion = "2.2.1"
 
     // kotlin
     implementation(kotlin("stdlib-jdk7", version = rootProject.extra["kotlinVersion"] as String))
-    // rx java
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.0")
-    implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion")
-    // retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
     // support libs
-    implementation("com.android.support:support-compat:$supportLibVersion") // support.v4.app.NotificationCompat
-    implementation("com.android.support:support-v4:$supportLibVersion")     // overwrite v27 referenced by kpermissions
-    implementation("com.android.support:appcompat-v7:$supportLibVersion")   // overwrite v26 referenced by rxdownload
-    // permissions
-    implementation("com.github.fondesa:kpermissions:1.0.0")
+    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.work:work-runtime-ktx:2.3.0")
     // downloader
-    implementation("zlc.season:rxdownload3:1.2.7")
+    implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
+    implementation("com.github.kittinunf.fuel:fuel-android:$fuelVersion")
+    implementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
+    implementation("com.squareup.moshi:moshi:1.8.0") // normally provided as dependency with fuel-moshi... strange!
+    // permissions
+    implementation("com.github.fondesa:kpermissions:2.0.2")
     // test
-    androidTestImplementation("com.android.support.test:runner:1.0.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.1")
+    //
 }
 
 task("sendErrorIntent", Exec::class) {
