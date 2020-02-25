@@ -179,8 +179,8 @@ class ImageDownloadWorker(context: Context, private val workerParams: WorkerPara
                 Pair(outputStream, { response.body().toStream() })
             }
             .progress { readBytes, totalBytes ->
-                // only every 10% - else will be blocked
-                if (System.currentTimeMillis() - lastUpdate > 400) {
+                // max 2 updates/second - more than 10/second will be blocked
+                if (System.currentTimeMillis() - lastUpdate > 500) {
                     lastUpdate = System.currentTimeMillis()
                     notificationHelper.notifyDownloadProgress(notificationId, readBytes.toInt(), totalBytes.toInt())
                 }
