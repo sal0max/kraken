@@ -36,7 +36,7 @@ class TuckActivity : FragmentActivity() {
         data?.let {
             val shortcode = parseUri(it)
             if (shortcode != null) {
-                InstaApiWorker.enqueueWork(this, shortcode)
+                ApiWorker.enqueueWork(this, shortcode)
             } else {
                 Notification(this).notifyWrongLinkError(data)
             }

@@ -19,7 +19,7 @@ import java.net.URLConnection
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ImageDownloadWorker(context: Context, private val workerParams: WorkerParameters) : Worker(context, workerParams) {
+class DownloadWorker(context: Context, private val workerParams: WorkerParameters) : Worker(context, workerParams) {
 
     private val notificationHelper by lazy { Notification(context) }
 
@@ -41,7 +41,7 @@ class ImageDownloadWorker(context: Context, private val workerParams: WorkerPara
                     ".${getFileExtension(downloadUrl)}"
 
             WorkManager.getInstance(context).enqueue(
-                OneTimeWorkRequestBuilder<ImageDownloadWorker>()
+                OneTimeWorkRequestBuilder<DownloadWorker>()
                     .setInputData(
                         Data.Builder().apply {
                             putBoolean(KEY_IS_VIDEO, image.isVideo)

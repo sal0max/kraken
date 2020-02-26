@@ -18,7 +18,7 @@ android {
         applicationId = "de.salomax.tuck"
         minSdkVersion(21)
         targetSdkVersion(29)
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // SemVer
         val major = 1
         val minor = 0
@@ -85,8 +85,8 @@ dependencies {
     // permissions
     implementation("com.github.fondesa:kpermissions:2.0.2")
     // test
+    androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    //
 }
 
 task("sendErrorIntent", Exec::class) {

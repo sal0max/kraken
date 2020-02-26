@@ -3,11 +3,13 @@ package de.salomax.tuck
 import android.net.Uri
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import de.salomax.tuck.data.*
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import java.util.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -46,25 +48,25 @@ class InstrumentedTest {
 
     @Test
     fun testInstagramService() {
-        // https://www.instagram.com/p/BpeoORynb0x/
-//        val post = InstagramService.create().getPost("BpeoORynb0x").blockingFirst()
-//
-//        assertEquals(10, post.images.size)
-//        assertEquals(Owner(728187757, "danielkordan"), post.owner)
-//        assertEquals(Date("Sun Oct 28 14:32:06 GMT+01:00 2018"), post.dateTime)
-//        assertEquals(
-//            Uri.parse(
-//                "https://scontent-frx5-1.cdninstagram.com/" +
-//                        "vp/" +
-//                        "a13401a64fa0b0f833cffea732880b2f/" +
-//                        "5CEEDA70/" +
-//                        "t51.2885-15/" +
-//                        "e35/" +
-//                        "43403359_170767710533685_8680235362131381289_n.jpg" +
-//                        "?_nc_ht=scontent-frx5-1.cdninstagram.com"
-//            ),
-//            post.images[0].imageUrl
-//        )
+        val (response, result) = InstagramService.getPost("BpeoORynb0x")
+        val post = result.component1()
+
+        assertEquals(10, post?.images?.size)
+        assertEquals(Owner(728187757, "danielkordan"), post?.owner)
+        assertEquals(Date("Sun Oct 28 14:32:06 GMT+01:00 2018"), post?.dateTime)
+        assertEquals(
+            Uri.parse(
+                "https://instagram.ffra1-1.fna.fbcdn.net/" +
+                        "v/" +
+                        "t51.2885-15/" +
+                        "e35/" +
+                        "43403359_170767710533685_8680235362131381289_n.jpg" +
+                        "?_nc_ht=instagram.ffra1-1.fna.fbcdn.net" +
+                        "&_nc_cat=109" +
+                        "&_nc_ohc=Kd-dDH1SqngAX-rZhd1&oh=0968c0e7454d5ecb39f34fa1d3a7b921&oe=5E878B70"
+            ),
+            post?.images?.get(0)?.imageUrl
+        )
     }
 
 }
