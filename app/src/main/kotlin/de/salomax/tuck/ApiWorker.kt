@@ -52,7 +52,6 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
             post?.images?.forEach {
                 DownloadWorker.enqueueWork(applicationContext, it, post)
             }
-            Thread.sleep(15000)
             Result.success()
         }
     }
