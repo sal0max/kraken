@@ -1,4 +1,4 @@
-package de.salomax.tuck.data
+package de.salomax.kraken.data
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader

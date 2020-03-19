@@ -1,7 +1,7 @@
 # Kraken – Instagram Image Downloader
 
 <p align="center">
-  <img src="art/logo.svg" alt="Tuck Logo"/>
+  <img src="art/logo.svg" alt="Kraken Logo"/>
 </p>
 
 **A reliable, native and lightweight Downloader for Instagram images. Written in Kotlin. For Android.**

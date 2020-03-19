@@ -1,9 +1,9 @@
-package de.salomax.tuck
+package de.salomax.kraken
 
 import android.net.Uri
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import de.salomax.tuck.data.*
+import de.salomax.kraken.data.*
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,7 +23,7 @@ class InstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("de.salomax.tuck.debug", appContext.packageName)
+        assertEquals("de.salomax.kraken.debug", appContext.packageName)
     }
 
     @Test

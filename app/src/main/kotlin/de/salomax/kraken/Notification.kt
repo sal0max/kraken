@@ -1,4 +1,4 @@
-package de.salomax.tuck
+package de.salomax.kraken
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

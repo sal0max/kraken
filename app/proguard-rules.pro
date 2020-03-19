@@ -16,7 +16,7 @@
 -keepattributes Signature
 -keepattributes Exceptions
 
--dontwarn de.salomax.tuck.**
--keep class de.salomax.tuck.** {
+-dontwarn de.salomax.kraken.**
+-keep class de.salomax.kraken.** {
   *;
 }

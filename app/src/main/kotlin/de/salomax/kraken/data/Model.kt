@@ -1,4 +1,4 @@
-package de.salomax.tuck.data
+package de.salomax.kraken.data
 
 import android.net.Uri
 import com.squareup.moshi.Json

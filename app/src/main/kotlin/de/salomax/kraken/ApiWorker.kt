@@ -1,9 +1,9 @@
-package de.salomax.tuck
+package de.salomax.kraken
 
 import android.content.Context
 import androidx.work.*
 import com.github.kittinunf.fuel.core.isSuccessful
-import de.salomax.tuck.data.*
+import de.salomax.kraken.data.*
 import java.util.*
 
 class ApiWorker(context: Context, private val workerParams: WorkerParameters) : Worker(context, workerParams) {

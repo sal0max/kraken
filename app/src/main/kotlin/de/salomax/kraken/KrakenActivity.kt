@@ -1,4 +1,4 @@
-package de.salomax.tuck
+package de.salomax.kraken
 
 import android.Manifest
 import android.content.Intent
@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import com.fondesa.kpermissions.extension.*
 import java.lang.Exception
 
-class TuckActivity : FragmentActivity() {
+class KrakenActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

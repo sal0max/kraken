@@ -1,4 +1,4 @@
-package de.salomax.tuck
+package de.salomax.kraken
 
 import android.content.ContentUris
 import android.content.ContentValues
@@ -12,7 +12,7 @@ import androidx.core.net.toUri
 import androidx.work.*
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.isSuccessful
-import de.salomax.tuck.data.*
+import de.salomax.kraken.data.*
 import java.io.File
 import java.io.OutputStream
 import java.net.URLConnection

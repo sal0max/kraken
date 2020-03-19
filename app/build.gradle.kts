@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "de.salomax.tuck"
+        applicationId = "de.salomax.kraken"
         minSdkVersion(21)
         targetSdkVersion(29)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

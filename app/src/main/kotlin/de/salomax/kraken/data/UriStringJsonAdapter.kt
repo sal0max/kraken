@@ -1,11 +1,10 @@
-package de.salomax.tuck.data
+package de.salomax.kraken.data
 
 import android.net.Uri
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
 import java.io.IOException
-import java.util.Date
 
 /**
  * Formats Uris.
