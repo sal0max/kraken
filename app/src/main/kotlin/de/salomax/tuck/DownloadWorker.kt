@@ -110,7 +110,7 @@ class DownloadWorker(context: Context, private val workerParams: WorkerParameter
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             values.apply {
                 put(MediaStore.MediaColumns.IS_PENDING, 1)
-                put(MediaStore.MediaColumns.RELATIVE_PATH, (if (isVideo) Environment.DIRECTORY_MOVIES else Environment.DIRECTORY_PICTURES) + "/Tuck")
+                put(MediaStore.MediaColumns.RELATIVE_PATH, (if (isVideo) Environment.DIRECTORY_MOVIES else Environment.DIRECTORY_PICTURES) + "/Kraken")
             }
             val tableUri =
                 if (isVideo)
@@ -146,9 +146,9 @@ class DownloadWorker(context: Context, private val workerParams: WorkerParameter
          */
         else {
             @Suppress("DEPRECATION")
-            val videoFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).absolutePath + "/Tuck/")
+            val videoFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).absolutePath + "/Kraken/")
             @Suppress("DEPRECATION")
-            val imageFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath + "/Tuck/")
+            val imageFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath + "/Kraken/")
             // create directory if not existent
             if (isVideo && !videoFolder.exists())
                 videoFolder.mkdirs()

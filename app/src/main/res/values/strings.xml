@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tuck for Instagram</string>
-    <string name="app_name_short">Tuck</string>
+    <string name="app_name">Kraken for Instagram</string>
+    <string name="app_name_short">Kraken</string>
 
     <string name="error_invalid_link">Not a valid link</string>
 
-    <string name="ask_write_storage_permission">In order to download photos, Tuck needs the permission to write to the external storage.</string>
+    <string name="ask_write_storage_permission">In order to download photos, Kraken needs the permission to write to the external storage.</string>
 
     <string name="download_running">Downloading…</string>
     <string name="download_success">Download finished</string>

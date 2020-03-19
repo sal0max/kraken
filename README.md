@@ -1,13 +1,10 @@
-# Tuck – Instagram Image Downloader
+# Kraken – Instagram Image Downloader
 
 <p align="center">
   <img src="art/logo.svg" alt="Tuck Logo"/>
 </p>
 
-**A reliable and lightweight Downloader for Instagram images. Written in Kotlin. For Android.**
-
-> * **tuck** _(verb)_ – Put or keep (something) in a specified place so as to be hidden, secure, comfortable, or tidy.  
-> * Friar **Tuck** is a companion to Robin Hood in the legends about that character.
+**A reliable, native and lightweight Downloader for Instagram images. Written in Kotlin. For Android.**
 
 [<img alt="Get it on Google Play" height="60" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.salomax.tuck)
 
@@ -17,23 +14,25 @@
 * Mighty: Downloads all images & videos, even of posts with multiple photos & videos
 * Thorough: Downloads all photos in the best available resolution
 * Free: No ads, no user tracking, completely Open Source
+* Up-to-date: Fully supports Android 11 with all its file download restrictions
 
 ### How-to
 
-1. In the Instagram app, just share the photo you like to download and select `Share via…` or `Share Link…` (Depending on Instagram version).
-2. Select `Tuck for Instagram` and watch the magic happen.
+1. In the Instagram app, just share the photo you like to download and select `Share to…`.
+2. Select `Kraken for Instagram` and watch the magic happen.
 
 
 ### Screenshots
 
 <div>
-   <img src="art/screenshots/01.png" width="280" alt="screenshot 1">
-   <img src="art/screenshots/02.png" width="280" alt="screenshot 2">
-   <img src="art/screenshots/03.png" width="280" alt="screenshot 3">
+   <img src="art/screenshots/manual.00.png" width="280" alt="screenshot 0">
+   <img src="art/screenshots/manual.01.png" width="280" alt="screenshot 1">
+   <img src="art/screenshots/manual.02.png" width="280" alt="screenshot 2">
+   <img src="art/screenshots/manual.03.png" width="280" alt="screenshot 3">
 </div>
 
 ### Info
-* All images will be downloaded to the `/Pictures/Tuck/` folder. Videos to `/Movies/Tuck/`.
+* All images will be downloaded to the `/Pictures/Kraken/` folder. Videos to `/Movies/Kraken/`.
 * The filename will be in the format `<username>.<yyyyMMdd>.<shortcode>.[jpg/mp4]`.  
   e. g. `danielkordan.20181119.BqXaCwGA_Hx.jpg`
 * `shortcode` is the id of the image. With it you can find the post again:  
@@ -42,4 +41,4 @@
 
 ## License
 
-Copyright (C) 2019 Maximilian Salomon
+Copyright (C) 2020 Maximilian Salomon

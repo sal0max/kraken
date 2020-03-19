@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="72" viewBox="0 0 72 72">
+  <defs>
+    <filter id="Rectangle_Mask" x="-9" y="-6" width="90" height="90" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_Mask)">
+        <rect id="Rectangle_Mask-2" data-name="Rectangle Mask" width="72" height="72" transform="translate(248 72)" fill="#fff"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="Square" transform="translate(-248 -72)" clip-path="url(#clip-path)">
+    <g id="Master" transform="translate(260 79)">
+      <g id="Foreground" transform="translate(-92.615 -75.237)">
+        <g id="tentacle_left" data-name="tentacle, left" transform="translate(92.615 84.806)">
+          <path id="Pfad_3" data-name="Pfad 3" d="M0,16.5a9.5,9.5,0,1,0,19,0" transform="translate(0 13.431)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_5" data-name="Pfad 5" d="M0,0V2.09" transform="translate(19 27.841)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_4" data-name="Pfad 4" d="M0,0V23.25" transform="translate(0 6.681)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_2" data-name="Pfad 2" d="M6.25,3.681a3.591,3.591,0,0,1,1.078-2.6A3.751,3.751,0,0,1,9.931,0" transform="translate(-6.25 3)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+        </g>
+        <g id="tentacle_right" data-name="tentacle, right" transform="translate(121.615 70.237)">
+          <path id="Pfad_3-2" data-name="Pfad 3" d="M19,16.5a9.5,9.5,0,1,1-19,0" transform="translate(0 28)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_5-2" data-name="Pfad 5" d="M0,0V1.569" transform="translate(0 42.931)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_4-2" data-name="Pfad 4" d="M0,0V23.25" transform="translate(19 21.25)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+          <path id="Pfad_2-2" data-name="Pfad 2" d="M9.931,3.681a3.591,3.591,0,0,0-1.078-2.6A3.751,3.751,0,0,0,6.25,0" transform="translate(9.069 17.569)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+        </g>
+        <g id="tentacle_middle" data-name="tentacle, middle" transform="translate(122.114 66.237)">
+          <path id="Pfad_6" data-name="Pfad 6" d="M0,0V20" transform="translate(-5.5 36.5)" stroke="#000" stroke-width="5"/>
+          <path id="Pfad_7" data-name="Pfad 7" d="M9.931,3.681a3.591,3.591,0,0,0-1.078-2.6A3.751,3.751,0,0,0,6.25,0" transform="translate(-5.519 50.32) rotate(90)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="5"/>
+        </g>
+        <g id="face" transform="translate(-4.617 5.327)">
+          <g id="head">
+            <ellipse id="oval" cx="15" cy="17.5" rx="15" ry="17.5" transform="translate(106.232 69.911)"/>
+            <path id="Differenzmenge_1" data-name="Differenzmenge 1" d="M-168.268,189.911h-20a4.505,4.505,0,0,1-4.5-4.5,4.505,4.505,0,0,1,4.5-4.5h20a4.505,4.505,0,0,1,4.5,4.5A4.505,4.505,0,0,1-168.268,189.911Zm0-7.5a3,3,0,0,0-3,3,3,3,0,0,0,3,3,3,3,0,0,0,3-3A3,3,0,0,0-168.269,182.41Zm-20,0a3,3,0,0,0-3,3,3,3,0,0,0,3,3,3,3,0,0,0,3-3A3,3,0,0,0-188.268,182.41Z" transform="translate(299.5 -81)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
