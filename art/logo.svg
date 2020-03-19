@@ -1,11 +1,15 @@
-<svg id="Symbol_1" data-name="Symbol 1" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink" width="216.872" height="180.174"
-        viewBox="0 0 108.872 88.174">
+<svg id="Master" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="216.872" height="180.174" viewBox="0 0 108.872 88.174">
     <defs>
         <linearGradient id="linear-gradient" x1="0.468" y1="-0.068" x2="0.465" y2="0.963"
                 gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-opacity="0.22" />
+            <stop offset="0" stop-opacity="0.11" />
             <stop offset="1" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="1" y1="0.95" x2="0.438" y2="0.391"
+                gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
         </linearGradient>
     </defs>
     <g id="Foreground" transform="translate(-62.615 -66.237)">
@@ -25,7 +29,7 @@
                     transform="translate(-6.25 3)" fill="none" stroke="#cd486b"
                     stroke-linecap="round" stroke-width="5" />
             <ellipse id="shine" cx="1.5" cy="1" rx="1.5" ry="1"
-                    transform="translate(4.616 0.632) rotate(60)" fill="#fff" opacity="0.3" />
+                    transform="translate(0.718 2.159) rotate(-25)" fill="#fff" opacity="0.3" />
         </g>
         <g id="tentacle_right" data-name="tentacle, right" transform="translate(121.615 70.237)">
             <path id="Pfad_3-2" data-name="Pfad 3" d="M19,16.5a9.5,9.5,0,1,1-19,0"
@@ -73,9 +77,10 @@
                 <circle id="Ellipse_2-2" data-name="Ellipse 2" cx="1" cy="1" r="1"
                         transform="translate(3 1)" fill="#fff" opacity="0.9" />
             </g>
-            <path id="shine-4" data-name="shine"
-                    d="M-159.961,202.2h0a19.931,19.931,0,0,0,.2-2.786,18.584,18.584,0,0,0-4.54-12.374,14.565,14.565,0,0,0-10.96-5.125c-.438,0-.88.021-1.314.062a11.439,11.439,0,0,1,4.814-1.062,12.11,12.11,0,0,1,9.192,4.393,16.137,16.137,0,0,1,3.808,10.606A16.823,16.823,0,0,1-159.961,202.2Z"
-                    transform="translate(293 -109)" fill="#fff" opacity="0.3" />
+            <path id="shine1"
+                    d="M4.813,21.286A12.369,12.369,0,0,1-5.216,15.831a13.882,13.882,0,0,0,3.529.456,14.565,14.565,0,0,0,10.96-5.126,18.586,18.586,0,0,0,4.54-12.375,19.807,19.807,0,0,0-.346-3.694A16.128,16.128,0,0,1,17.814,6.287a16.137,16.137,0,0,1-3.808,10.606A12.111,12.111,0,0,1,4.813,21.286Z"
+                    transform="translate(126.232 93.197) rotate(180)" opacity="0.3"
+                    fill="url(#linear-gradient-2)" />
         </g>
     </g>
 </svg>
