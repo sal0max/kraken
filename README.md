@@ -18,8 +18,9 @@
 
 ### How-to
 
-1. In the Instagram app, just share the photo you like to download and select `Share to…`.
-2. Select `Kraken for Instagram` and watch the magic happen.
+1. In the Instagram app, just share the photo you like to download
+2. Select `Share to…`.
+3. Pick `Kraken for Instagram` and watch the magic happen.
 
 
 ### Screenshots
