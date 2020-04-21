@@ -76,7 +76,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk7", version = rootProject.extra["kotlinVersion"] as String))
     // support libs
     implementation("androidx.core:core-ktx:1.2.0")
-    implementation("androidx.work:work-runtime-ktx:2.3.3")
+    implementation("androidx.work:work-runtime-ktx:2.3.4")
     // downloader
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-android:$fuelVersion")
