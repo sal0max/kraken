@@ -27,4 +27,18 @@ object InstagramService {
         return Pair<Response, com.github.kittinunf.result.Result<Post, FuelError>>(response, result)
     }
 
+    fun getUser(userName: String?): Pair<Response, com.github.kittinunf.result.Result<User, FuelError>> {
+        val moshi = Moshi.Builder()
+            .add(UserAdapter())
+            .add(Date::class.java, UnixTimestampDateJsonAdapter())
+            .add(Uri::class.java, UriStringJsonAdapter())
+            .build()
+            .adapter(User::class.java)
+        val (_, response, result) = Fuel
+            .get("https://www.instagram.com/$userName/?__a=1")
+            .responseObject(moshiDeserializerOf(moshi))
+
+        return Pair<Response, com.github.kittinunf.result.Result<User, FuelError>>(response, result)
+    }
+
 }
