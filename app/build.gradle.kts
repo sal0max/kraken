@@ -22,7 +22,7 @@ android {
         // SemVer
         val major = 1
         val minor = 0
-        val patch = 0
+        val patch = 1
         versionCode = (major * 10000) + (minor * 100) + patch
         versionName = "$major ($major.$minor.$patch)"
     }
