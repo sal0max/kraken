@@ -42,7 +42,10 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
 
         // error: just show a message
         return if (!response.isSuccessful) {
-            val error = result.component2()?.message
+            val error = if (response.statusCode == 404)
+                applicationContext.getString(R.string.download_error_private)
+            else
+                result.component2()?.message
             notificationHelper.notifyDownloadError(Random().nextInt(), error)
             Result.failure()
         }
