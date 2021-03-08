@@ -83,7 +83,7 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
     implementation("com.squareup.moshi:moshi:1.8.0") // normally provided as dependency with fuel-moshi... strange!
     // permissions
-    implementation("com.github.fondesa:kpermissions:2.0.2")
+    implementation("com.github.fondesa:kpermissions:3.1.3")
     // test
     androidTestImplementation("androidx.test:runner:1.3.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")

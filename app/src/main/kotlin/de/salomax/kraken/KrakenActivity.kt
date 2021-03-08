@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
+import com.fondesa.kpermissions.*
 import com.fondesa.kpermissions.extension.*
 import java.lang.Exception
 
@@ -16,18 +17,21 @@ class KrakenActivity : FragmentActivity() {
         // first make sure to be able to write to storage
         permissionsBuilder(Manifest.permission.WRITE_EXTERNAL_STORAGE)
             .build()
-            .onAccepted {
-                startService()
-                finish()
+            .send { result ->
+                when {
+                    result.allGranted() -> {
+                        startService()
+                        finish()
+                    }
+                    result.allPermanentlyDenied() -> {
+                        Notification(this).notifyAskPermission()
+                        finish()
+                    }
+                    result.allDenied() -> {
+                        finish()
+                    }
+                }
             }
-            .onPermanentlyDenied {
-                Notification(this).notifyAskPermission()
-                finish()
-            }
-            .onShouldShowRationale { _, nonce ->
-                nonce.use()
-            }
-            .send()
     }
 
     private fun startService() {
