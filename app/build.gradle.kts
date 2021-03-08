@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
