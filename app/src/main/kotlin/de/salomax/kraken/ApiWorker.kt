@@ -49,6 +49,14 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
             notificationHelper.notifyDownloadError(Random().nextInt(), error)
             Result.failure()
         }
+        // some other error
+        else if (result.component1() == null) {
+            notificationHelper.notifyDownloadError(
+                Random().nextInt(),
+                applicationContext.getString(R.string.download_error_generic)
+            )
+            Result.failure()
+        }
         // success: download each media file
         else {
             val post = result.component1()

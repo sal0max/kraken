@@ -10,5 +10,6 @@
     <string name="download_running">Downloading…</string>
     <string name="download_success">Download finished</string>
     <string name="download_error">Failed to download</string>
+    <string name="download_error_generic">Something isn\'t right…</string>
     <string name="download_error_private">The media you want to download is likely from a private account. Kraken can only download public images and videos.\n\nMaybe you take a screenshot, instead? :/</string>
 </resources>
