@@ -2,6 +2,7 @@ package de.salomax.kraken.data
 
 import android.net.Uri
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.util.*
 
 /*
@@ -49,15 +50,18 @@ data class User(
  * garbage from API ********************************************************************************
  */
 
+@JsonClass(generateAdapter = true)
 data class Result(
     @field:Json(name = "graphql") val graphQl: GraphQl
 )
 
+@JsonClass(generateAdapter = true)
 data class GraphQl(
     @field:Json(name = "shortcode_media") val shortcodeMedia: ShortcodeMedia?,
     @field:Json(name = "user") val user: GraphUser?
 )
 
+@JsonClass(generateAdapter = true)
 data class ShortcodeMedia(
     @field:Json(name = "id") val id: Long,
     @field:Json(name = "shortcode") val shortCode: String,
@@ -70,14 +74,17 @@ data class ShortcodeMedia(
     @field:Json(name = "accessibility_caption") val accessibilityCaption: String?
 )
 
+@JsonClass(generateAdapter = true)
 data class EdgeSidecarToChildren(
     @field:Json(name = "edges") val edges: List<Edge>
 )
 
+@JsonClass(generateAdapter = true)
 data class Edge(
     @field:Json(name = "node") val node: Node
 )
 
+@JsonClass(generateAdapter = true)
 data class Node(
     @field:Json(name = "id") val id: Long,
     @field:Json(name = "shortcode") val shortCode: String,
@@ -87,6 +94,7 @@ data class Node(
     @field:Json(name = "accessibility_caption") val accessibilityCaption: String
 )
 
+@JsonClass(generateAdapter = true)
 data class GraphUser(
     @field:Json(name = "biography") val biography: String?,
     @field:Json(name = "edge_followed_by") val followedBy: Count,
@@ -102,6 +110,7 @@ data class GraphUser(
     @field:Json(name = "username") val username: String
 )
 
+@JsonClass(generateAdapter = true)
 data class Count(
     @field:Json(name = "count") val count: Long
 )

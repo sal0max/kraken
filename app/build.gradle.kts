@@ -4,6 +4,7 @@ import java.io.FileInputStream
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -71,18 +72,19 @@ android {
 }
 
 dependencies {
-    val fuelVersion = "2.3.1"
-
     // kotlin
     implementation(kotlin("stdlib-jdk7", version = rootProject.extra["kotlinVersion"] as String))
     // support libs
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.work:work-runtime-ktx:2.5.0")
     // downloader
+    val fuelVersion = "2.3.1"
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-android:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
-    implementation("com.squareup.moshi:moshi:1.8.0") // normally provided as dependency with fuel-moshi... strange!
+    val moshiVersion = "1.11.0"
+    implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
     // permissions
     implementation("com.github.fondesa:kpermissions:3.1.3")
     // test

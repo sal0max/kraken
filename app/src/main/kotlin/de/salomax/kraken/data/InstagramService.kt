@@ -6,6 +6,7 @@ import com.github.kittinunf.fuel.core.FuelError
 import com.github.kittinunf.fuel.core.Response
 import com.github.kittinunf.fuel.moshi.moshiDeserializerOf
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.util.*
 
 object InstagramService {
@@ -18,6 +19,7 @@ object InstagramService {
             .add(PostAdapter())
             .add(Date::class.java, UnixTimestampDateJsonAdapter())
             .add(Uri::class.java, UriStringJsonAdapter())
+            .add(KotlinJsonAdapterFactory())
             .build()
             .adapter(Post::class.java)
         val (_, response, result) = Fuel
