@@ -6,7 +6,8 @@ import com.github.kittinunf.fuel.core.isSuccessful
 import de.salomax.kraken.data.*
 import java.util.*
 
-class ApiWorker(context: Context, private val workerParams: WorkerParameters) : Worker(context, workerParams) {
+class ApiWorker(context: Context, private val workerParams: WorkerParameters) :
+    Worker(context, workerParams) {
 
     private val notificationHelper by lazy { Notification(context) }
 
@@ -15,8 +16,9 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
      */
     companion object {
         private const val KEY_SHORTCODE = "KEY_SHORTCODE"
+        private const val KEY_ENDPOINT = "KEY_ENDPOINT"
 
-        fun enqueueWork(context: Context, shortcode: String) {
+        fun enqueueWork(context: Context, shortcode: String, endpoint: String) {
 
             WorkManager
                 .getInstance(context)
@@ -25,6 +27,7 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
                         .setInputData(
                             Data.Builder().apply {
                                 putString(KEY_SHORTCODE, shortcode)
+                                putString(KEY_ENDPOINT, endpoint)
                             }.build()
                         )
                         .setConstraints(
@@ -38,7 +41,10 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) : 
     }
 
     override fun doWork(): Result {
-        val (response, result) = InstagramService.getPost(workerParams.inputData.getString(KEY_SHORTCODE))
+        val (response, result) = InstagramService.getPost(
+            workerParams.inputData.getString(KEY_SHORTCODE)!!,
+            workerParams.inputData.getString(KEY_ENDPOINT)!!
+        )
 
         // error: just show a message
         return if (!response.isSuccessful) {

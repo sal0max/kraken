@@ -12,9 +12,9 @@ import java.util.*
 object InstagramService {
 
     /**
-     * Get all info about a post via the Instagram api
+     * Get all info about a post/reel via the Instagram api
      */
-    fun getPost(shortcode: String?): Pair<Response, com.github.kittinunf.result.Result<Post, FuelError>> {
+    fun getPost(shortcode: String, endpoint: String): Pair<Response, com.github.kittinunf.result.Result<Post, FuelError>> {
         val moshi = Moshi.Builder()
             .add(PostAdapter())
             .add(Date::class.java, UnixTimestampDateJsonAdapter())
@@ -23,7 +23,7 @@ object InstagramService {
             .build()
             .adapter(Post::class.java)
         val (_, response, result) = Fuel
-            .get("https://www.instagram.com/p/$shortcode/?__a=1")
+            .get("https://www.instagram.com/$endpoint/$shortcode/?__a=1")
             .responseObject(moshiDeserializerOf(moshi))
 
         return Pair<Response, com.github.kittinunf.result.Result<Post, FuelError>>(response, result)

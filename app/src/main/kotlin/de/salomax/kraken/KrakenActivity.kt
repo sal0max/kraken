@@ -39,8 +39,13 @@ class KrakenActivity : FragmentActivity() {
 
         data?.let {
             val shortcode = parseUri(it)
-            if (shortcode != null) {
-                ApiWorker.enqueueWork(this, shortcode)
+            val endpoint = when {
+                it.contains("/p/") -> "p"
+                it.contains("/reel/") -> "reel"
+                else -> null
+            }
+            if (shortcode != null && endpoint != null) {
+                ApiWorker.enqueueWork(this, shortcode, endpoint)
             } else {
                 Notification(this).notifyWrongLinkError(data)
             }
@@ -50,13 +55,25 @@ class KrakenActivity : FragmentActivity() {
     private fun parseUri(s: String): String? {
         val uri = Uri.parse(s)
         return try {
-            if (uri != null // check if its a valid link
-                && uri.authority == "www.instagram.com" // check if its an instagram url
-                && uri.pathSegments.find { it == "p" } != null // check if its a instagram picture url
-                && uri.pathSegments.indexOf("p") != uri.pathSegments.size - 1 // check if it has a shortcode (something that follows /p/)
-            )
-                uri.pathSegments?.let { it[it.indexOf("p") + 1] } as String
-            else
+            if (
+            // check if it's a valid link
+                uri != null
+                // check if its an Instagram url
+                && uri.authority == "www.instagram.com"
+            ) {
+                // check if its an Instagram picture url
+                if (uri.pathSegments.find { it == "p" } != null
+                    // check if it has a shortcode (something that follows /p/)
+                    && uri.pathSegments.indexOf("p") != uri.pathSegments.size - 1)
+                    uri.pathSegments?.let { it[it.indexOf("p") + 1] } as String
+                // check if its an Instagram reel url
+                else if (uri.pathSegments.find { it == "reel" } != null
+                    // check if it has a shortcode (something that follows /reel/)
+                    && uri.pathSegments.indexOf("reel") != uri.pathSegments.size - 1)
+                    uri.pathSegments?.let { it[it.indexOf("reel") + 1] } as String
+                else
+                    null
+            } else
                 null
         } catch (e: Exception) {
             null
