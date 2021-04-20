@@ -4,14 +4,14 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    val kotlinVersion: String by extra("1.4.31")
+    val kotlinVersion: String by extra("1.4.32")
     repositories {
         google()
-        jcenter()
-
+        mavenCentral()
     }
+
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.2")
+        classpath("com.android.tools.build:gradle:4.1.3")
         classpath(kotlin("gradle-plugin", version = kotlinVersion))
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

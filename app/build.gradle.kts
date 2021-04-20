@@ -82,11 +82,11 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-android:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
-    val moshiVersion = "1.11.0"
+    val moshiVersion = "1.12.0"
     implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
     // permissions
-    implementation("com.github.fondesa:kpermissions:3.1.3")
+    implementation("com.github.fondesa:kpermissions:3.2.1")
     // test
     androidTestImplementation("androidx.test:runner:1.3.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
