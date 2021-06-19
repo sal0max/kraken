@@ -47,7 +47,6 @@ android {
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
             isDebuggable = false
-            isZipAlignEnabled = true
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -69,13 +68,15 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    lintOptions {
+        isAbortOnError = false
+    }
 }
 
 dependencies {
-    // kotlin
-    implementation(kotlin("stdlib-jdk7", version = rootProject.extra["kotlinVersion"] as String))
     // support libs
-    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("androidx.core:core-ktx:1.5.0")
     implementation("androidx.work:work-runtime-ktx:2.5.0")
     // downloader
     val fuelVersion = "2.3.1"
