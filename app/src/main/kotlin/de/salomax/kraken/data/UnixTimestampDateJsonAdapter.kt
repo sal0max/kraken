@@ -18,7 +18,7 @@ import java.util.Date
 class UnixTimestampDateJsonAdapter : JsonAdapter<Date>() {
     @Synchronized
     @Throws(IOException::class)
-    override fun fromJson(reader: JsonReader): Date? {
+    override fun fromJson(reader: JsonReader): Date {
         return Date(reader.nextLong() * 1000)
     }
 
