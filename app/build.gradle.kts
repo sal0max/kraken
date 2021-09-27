@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -17,8 +17,8 @@ android {
 
     defaultConfig {
         applicationId = "de.salomax.kraken"
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdk = 21
+        targetSdk = 30
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // SemVer
         val major = 1
@@ -26,7 +26,7 @@ android {
         val patch = 3
         versionCode = (major * 10000) + (minor * 100) + patch
         versionName = "$major.$minor.$patch"
-        base.archivesBaseName = "$applicationId-v$versionCode"
+        base.archivesName.set("$applicationId-v$versionCode")
     }
 
     signingConfigs {
@@ -76,8 +76,8 @@ android {
 
 dependencies {
     // support libs
-    implementation("androidx.core:core-ktx:1.5.0")
-    implementation("androidx.work:work-runtime-ktx:2.5.0")
+    implementation("androidx.core:core-ktx:1.6.0")
+    implementation("androidx.work:work-runtime-ktx:2.6.0")
     // downloader
     val fuelVersion = "2.3.1"
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
@@ -89,8 +89,8 @@ dependencies {
     // permissions
     implementation("com.github.fondesa:kpermissions:3.2.1")
     // test
-    androidTestImplementation("androidx.test:runner:1.3.0")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
 }
 
 task("sendErrorIntent", Exec::class) {
