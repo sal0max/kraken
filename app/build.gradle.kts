@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = 31
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId = "de.salomax.kraken"
         minSdk = 21
-        targetSdk = 30
+        targetSdk = 31
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // SemVer
         val major = 1
@@ -69,7 +69,7 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    lintOptions {
+    lint {
         isAbortOnError = false
     }
 }
@@ -77,7 +77,7 @@ android {
 dependencies {
     // support libs
     implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.work:work-runtime-ktx:2.6.0")
+    implementation("androidx.work:work-runtime-ktx:2.7.0-beta01")
     // downloader
     val fuelVersion = "2.3.1"
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")

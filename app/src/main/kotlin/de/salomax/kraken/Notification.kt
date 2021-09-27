@@ -2,7 +2,7 @@ package de.salomax.kraken
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.PendingIntent.*
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
@@ -57,7 +57,8 @@ class Notification(private val context: Context) {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         val uri = Uri.fromParts("package", context.packageName, null)
         intent.data = uri
-        val pIntent = PendingIntent.getActivity(context, System.currentTimeMillis().toInt(), intent, 0)
+        val flag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) FLAG_IMMUTABLE else FLAG_ONE_SHOT
+        val pIntent = getActivity(context, System.currentTimeMillis().toInt(), intent, flag)
 
         // build notification
         val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
@@ -113,7 +114,8 @@ class Notification(private val context: Context) {
         val intent = Intent()
         intent.action = Intent.ACTION_VIEW
         intent.setDataAndType(uri, if (isVideo) "video/*" else "image/*")
-        val pIntent = PendingIntent.getActivity(context, System.currentTimeMillis().toInt(), intent, 0)
+        val flag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) FLAG_IMMUTABLE else FLAG_ONE_SHOT
+        val pIntent = getActivity(context, System.currentTimeMillis().toInt(), intent, flag)
 
         // generate preview
         val preview =
