@@ -126,7 +126,7 @@ class DownloadWorker(context: Context, private val workerParams: WorkerParameter
                 cursor.moveToFirst()
                 val existingImageUri = ContentUris.withAppendedId(
                     if (isVideo) MediaStore.Video.Media.EXTERNAL_CONTENT_URI else MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    cursor.getLong(cursor.getColumnIndex(MediaStore.MediaColumns._ID))
+                    cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns._ID))
                 )
                 notificationHelper.notifyDownloadSuccess(notificationId, filename, existingImageUri, isVideo)
                 cursor.close()
