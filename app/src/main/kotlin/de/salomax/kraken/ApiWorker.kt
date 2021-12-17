@@ -48,14 +48,18 @@ class ApiWorker(context: Context, private val workerParams: WorkerParameters) :
 
         // error: just show a message
         return if (!response.isSuccessful) {
-            val error = if (response.statusCode == 404)
-                applicationContext.getString(R.string.download_error_private)
-            else
-                result.component2()?.message
+            val error = when {
+                // private profile
+                response.statusCode == 404 -> applicationContext.getString(R.string.download_error_private)
+                // too many api calls
+                result.component2()?.exception is BlockedApiCallException -> applicationContext.getString(R.string.download_error_blocked_api)
+                // generic error with error message
+                else -> result.component2()?.message
+            }
             notificationHelper.notifyDownloadError(Random().nextInt(), error)
             Result.failure()
         }
-        // some other error
+        // some other error (no idea what's going on: hopefully never happens...)
         else if (result.component1() == null) {
             notificationHelper.notifyDownloadError(
                 Random().nextInt(),

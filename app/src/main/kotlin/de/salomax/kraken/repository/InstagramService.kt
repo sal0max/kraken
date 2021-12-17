@@ -2,16 +2,22 @@ package de.salomax.kraken.repository
 
 import android.net.Uri
 import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.core.FuelError
-import com.github.kittinunf.fuel.core.Response
+import com.github.kittinunf.fuel.core.*
 import com.github.kittinunf.fuel.moshi.moshiDeserializerOf
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import de.salomax.kraken.model.Post
 import de.salomax.kraken.model.User
+import java.net.URL
 import java.util.*
 
 object InstagramService {
+
+    private val validator: ResponseValidator = { response ->
+        if (response.url == URL("https://www.instagram.com/accounts/login/"))
+            throw BlockedApiCallException()
+        (response.isServerError || response.isClientError)
+    }
 
     /**
      * Get all info about a post/reel via the Instagram api
@@ -26,6 +32,7 @@ object InstagramService {
             .adapter(Post::class.java)
         val (_, response, result) = Fuel
             .get("https://www.instagram.com/$endpoint/$shortcode/?__a=1")
+            .validate(validator)
             .responseObject(moshiDeserializerOf(moshi))
 
         return Pair<Response, com.github.kittinunf.result.Result<Post, FuelError>>(response, result)
@@ -40,6 +47,7 @@ object InstagramService {
             .adapter(User::class.java)
         val (_, response, result) = Fuel
             .get("https://www.instagram.com/$userName/?__a=1")
+            .validate(validator)
             .responseObject(moshiDeserializerOf(moshi))
 
         return Pair<Response, com.github.kittinunf.result.Result<User, FuelError>>(response, result)
