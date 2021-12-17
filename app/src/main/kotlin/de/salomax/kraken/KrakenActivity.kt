@@ -78,7 +78,6 @@ class KrakenActivity : FragmentActivity() {
         } catch (e: Exception) {
             null
         }
-
     }
 
 }

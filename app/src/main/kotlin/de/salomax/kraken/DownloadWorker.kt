@@ -12,7 +12,8 @@ import androidx.core.net.toUri
 import androidx.work.*
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.isSuccessful
-import de.salomax.kraken.data.*
+import de.salomax.kraken.model.Image
+import de.salomax.kraken.model.Post
 import java.io.File
 import java.io.OutputStream
 import java.net.URLConnection

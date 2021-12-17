@@ -3,7 +3,7 @@ package de.salomax.kraken
 import android.content.Context
 import androidx.work.*
 import com.github.kittinunf.fuel.core.isSuccessful
-import de.salomax.kraken.data.*
+import de.salomax.kraken.repository.*
 import java.util.*
 
 class ApiWorker(context: Context, private val workerParams: WorkerParameters) :

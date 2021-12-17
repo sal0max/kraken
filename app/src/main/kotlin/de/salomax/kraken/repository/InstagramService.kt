@@ -1,4 +1,4 @@
-package de.salomax.kraken.data
+package de.salomax.kraken.repository
 
 import android.net.Uri
 import com.github.kittinunf.fuel.Fuel
@@ -7,6 +7,8 @@ import com.github.kittinunf.fuel.core.Response
 import com.github.kittinunf.fuel.moshi.moshiDeserializerOf
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import de.salomax.kraken.model.Post
+import de.salomax.kraken.model.User
 import java.util.*
 
 object InstagramService {

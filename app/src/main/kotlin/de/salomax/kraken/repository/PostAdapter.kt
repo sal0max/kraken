@@ -1,7 +1,10 @@
-package de.salomax.kraken.data
+package de.salomax.kraken.repository
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
+import de.salomax.kraken.model.Image
+import de.salomax.kraken.model.Post
+import de.salomax.kraken.model.Result
 import java.lang.UnsupportedOperationException
 
 internal class PostAdapter {

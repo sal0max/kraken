@@ -1,4 +1,4 @@
-package de.salomax.kraken.data
+package de.salomax.kraken.repository
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader

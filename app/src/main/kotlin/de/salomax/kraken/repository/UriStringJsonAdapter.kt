@@ -1,4 +1,4 @@
-package de.salomax.kraken.data
+package de.salomax.kraken.repository
 
 import android.net.Uri
 import com.squareup.moshi.JsonAdapter
