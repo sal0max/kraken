@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 import java.util.*
 
 /*
- * garbage (graphql) from API **********************************************************************
+ * garbage (graphql) from API
  */
 
 @JsonClass(generateAdapter = true)

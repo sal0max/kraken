@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 import java.util.*
 
 /*
- * own, nice classes *******************************************************************************
+ * own, nice classes
  */
 
 data class Post(
