@@ -31,10 +31,12 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile     = File(getSecret("KEYSTORE_FILE")!!)
-            storePassword = getSecret("KEYSTORE_PASSWORD")
-            keyAlias      = getSecret("KEYSTORE_KEY_ALIAS")
-            keyPassword   = getSecret("KEYSTORE_KEY_PASSWORD")
+            if (getSecret("KEYSTORE_FILE") != null) {
+                storeFile = File(getSecret("KEYSTORE_FILE"))
+                storePassword = getSecret("KEYSTORE_PASSWORD")
+                keyAlias = getSecret("KEYSTORE_KEY_ALIAS")
+                keyPassword = getSecret("KEYSTORE_KEY_PASSWORD")
+            }
         }
     }
 
