@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId = "de.salomax.kraken"
         minSdk = 21
-        targetSdk = 31
+        targetSdk = 32
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // SemVer
         val major = 1
@@ -76,14 +76,14 @@ android {
 
 dependencies {
     // support libs
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.work:work-runtime-ktx:2.7.0-beta01")
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
     // downloader
     val fuelVersion = "2.3.1"
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-android:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
-    val moshiVersion = "1.12.0"
+    val moshiVersion = "1.13.0"
     implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
     // permissions
