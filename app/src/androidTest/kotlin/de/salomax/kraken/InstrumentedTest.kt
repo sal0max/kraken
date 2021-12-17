@@ -47,10 +47,9 @@ class InstrumentedTest {
         assertEquals("BtLzwwjBTNP", uris[2].pathSegments?.let { it[it.indexOf("p") + 1] } as String)
     }
 
-
     @Test
     fun testInstagramServicePost() {
-        val (_, result) = InstagramService.getPost("BpeoORynb0x")
+        val (_, result) = InstagramService.getPost("BpeoORynb0x", "p")
         val post = result.component1()
 
         assertNotNull(post)
@@ -59,8 +58,7 @@ class InstrumentedTest {
         assertEquals(Date("Sun Oct 28 14:32:06 GMT+01:00 2018"), post.dateTime)
         assertEquals(
             Uri.parse(
-                "https://instagram.ffra1-1.fna.fbcdn.net/"
-                        + "v/"
+                "https://scontent-muc2-1.cdninstagram.com"
                         + "t51.2885-15/"
                         + "e35/"
                         + "43403359_170767710533685_8680235362131381289_n.jpg"
@@ -78,7 +76,6 @@ class InstrumentedTest {
         )
     }
 
-
     @Test
     fun testInstagramServiceUser() {
         val (_, result) = InstagramService.getUser("ines.adsm")
@@ -86,7 +83,7 @@ class InstrumentedTest {
 
         assertNotNull(user)
         assertEquals(219226146, user!!.id)
-        assertEquals(true, user.isPrivate)
+        assertEquals(false, user.isPrivate)
         assertEquals(false, user.isVerified)
         assertEquals(false, user.isVerified)
     }
