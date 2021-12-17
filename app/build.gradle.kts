@@ -23,7 +23,7 @@ android {
         // SemVer
         val major = 1
         val minor = 0
-        val patch = 4
+        val patch = 5
         versionCode = (major * 10000) + (minor * 100) + patch
         versionName = "$major.$minor.$patch"
         base.archivesName.set("$applicationId-v$versionCode")
