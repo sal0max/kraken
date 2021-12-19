@@ -16,7 +16,7 @@ object InstagramService {
     private val validator: ResponseValidator = { response ->
         if (response.url == URL("https://www.instagram.com/accounts/login/"))
             throw BlockedApiCallException()
-        (response.isServerError || response.isClientError)
+        !(response.isServerError || response.isClientError)
     }
 
     /**
